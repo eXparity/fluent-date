@@ -16,14 +16,14 @@ You can obtain Fluent Date binaries from [maven central][]. To include your proj
 A maven project
 
     <dependency>
-        <groupId>uk.co.modular-it</groupId>
+        <groupId>org.exparity</groupId>
         <artifactId>fluent-date</artifactId>
-        <version>0.9.1</version>
+        <version>1.0.0</version>
     </dependency>
 
 A project which uses ivy for dependency management
 
-    <dependency org="uk.co.modular-it" name="fluent-date" rev="0.9.1"/>
+    <dependency org="org.exparity" name="fluent-date" rev="1.0.0"/>
             
 Binaries
 --------

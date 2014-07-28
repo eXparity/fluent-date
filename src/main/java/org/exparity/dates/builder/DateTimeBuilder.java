@@ -1,5 +1,5 @@
 
-package uk.co.it.modular.dates.builder;
+package org.exparity.dates.builder;
 
 import java.util.Calendar;
 import java.util.Date;

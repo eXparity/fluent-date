@@ -1,8 +1,8 @@
 
-package uk.co.it.modular.dates.en;
+package org.exparity.dates.en;
 
 import java.util.Calendar;
-import uk.co.it.modular.dates.builder.DateTimeBuilder;
+import org.exparity.dates.builder.DateTimeBuilder;
 
 /**
  * A static factory for creating instances of {@link Date} instances with a time component using a readable fluent syntax.</p>For example:

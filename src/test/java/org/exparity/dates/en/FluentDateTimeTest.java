@@ -2,13 +2,13 @@
  * Copyright (c) Modular IT Limited.
  */
 
-package uk.co.it.modular.dates.en;
+package org.exparity.dates.en;
 
 import org.junit.Test;
-import uk.co.it.modular.hamcrest.date.Months;
+import org.exparity.hamcrest.date.Months;
+import static org.exparity.dates.en.FluentDateTime.*;
 import static org.junit.Assert.assertThat;
-import static uk.co.it.modular.dates.en.FluentDateTime.*;
-import static uk.co.it.modular.hamcrest.date.DateMatchers.sameInstant;
+import static org.exparity.hamcrest.date.DateMatchers.sameInstant;
 
 /**
  * Unit test for the {@link FluentDateTimes} class
