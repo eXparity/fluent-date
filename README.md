@@ -1,4 +1,4 @@
-Fluent Date [![Build Status](https://travis-ci.org/eXparity/fluent-date.svg?branch=master)](https://travis-ci.org/eXparity/fluent-date)
+Fluent Date [![Build Status](https://travis-ci.org/eXparity/fluent-date.svg?branch=master)](https://travis-ci.org/eXparity/fluent-date) [![Coverage Status](https://coveralls.io/repos/eXparity/fluent-date/badge.png?branch=master)](https://coveralls.io/r/eXparity/fluent-date)
 ===========
 
 A library for creating Date instances with a fluent readable syntax
