@@ -1,4 +1,4 @@
-Fluent Date
+Fluent Date [![Build Status](https://travis-ci.org/eXparity/fluent-date.svg?branch=master)](https://travis-ci.org/eXparity/fluent-date)
 ===========
 
 A library for creating Date instances with a fluent readable syntax
