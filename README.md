@@ -53,6 +53,12 @@ The source is structured along the lines of the maven standard folder structure 
 
 The source includes a pom.xml for building with Maven 
 
+Release Notes
+-------------
+Changes 1.0.0 -> 1.0.1
+  * Add support for supplying a TimeZone to FluentDateTime.
+  * Remove incorrect copyright notices
+
 Acknowledgements
 ----------------
 Developers:
