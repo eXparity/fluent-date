@@ -3,7 +3,7 @@
 
 	<groupId>org.exparity</groupId>
 	<artifactId>fluent-date</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2-SNAPSHOT</version>
 
 	<name>Fluent Date Builder</name>
 	<url>https://github.com/eXparity/fluent-date</url>
