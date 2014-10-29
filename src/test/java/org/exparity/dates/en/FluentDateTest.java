@@ -1,14 +1,10 @@
-/*
- * Copyright (c) Modular IT Limited.
- */
-
 package org.exparity.dates.en;
 
-import org.junit.Test;
 import org.exparity.hamcrest.date.Months;
+import org.junit.Test;
 import static org.exparity.dates.en.FluentDate.*;
-import static org.junit.Assert.assertThat;
 import static org.exparity.hamcrest.date.DateMatchers.sameDay;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for the {@link Dates} class

@@ -1,14 +1,13 @@
-/*
- * Copyright (c) Modular IT Limited.
- */
 
 package org.exparity.dates.en;
 
-import org.junit.Test;
+import java.util.TimeZone;
 import org.exparity.hamcrest.date.Months;
+import org.junit.Test;
+import static java.util.TimeZone.getTimeZone;
 import static org.exparity.dates.en.FluentDateTime.*;
-import static org.junit.Assert.assertThat;
 import static org.exparity.hamcrest.date.DateMatchers.sameInstant;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for the {@link FluentDateTimes} class
@@ -17,14 +16,71 @@ import static org.exparity.hamcrest.date.DateMatchers.sameInstant;
  */
 public class FluentDateTimeTest {
 
+	private static final TimeZone BRITISH_SUMMER_TIME = getTimeZone("GMT+1:00");
+	private static final TimeZone GREENWICH_MEAN_TIME = getTimeZone("GMT");
+
 	@Test
-	public void canCreateDateWithATime() {
+	public void canCreateDateWithAnHour() {
+		assertThat(JAN(1, 2014).at(9), sameInstant(2014, Months.JAN, 1, 9, 0, 0, 0));
+	}
+
+	@Test
+	public void canCreateDateWithAnHourAndZone() {
+		TimeZone currentDefault = TimeZone.getDefault();
+		TimeZone.setDefault(GREENWICH_MEAN_TIME);
+		try {
+			assertThat(JAN(1, 2014).at(9, BRITISH_SUMMER_TIME), sameInstant(2014, Months.JAN, 1, 8, 0, 0, 0));
+		} finally {
+			TimeZone.setDefault(currentDefault);
+		}
+	}
+
+	@Test
+	public void canCreateDateWithAMinute() {
+		assertThat(JAN(1, 2014).at(9, 15), sameInstant(2014, Months.JAN, 1, 9, 15, 0, 0));
+	}
+
+	@Test
+	public void canCreateDateWithAMinuteAndZone() {
+		TimeZone currentDefault = TimeZone.getDefault();
+		TimeZone.setDefault(GREENWICH_MEAN_TIME);
+		try {
+			assertThat(JAN(1, 2014).at(9, 15, BRITISH_SUMMER_TIME), sameInstant(2014, Months.JAN, 1, 8, 15, 0, 0));
+		} finally {
+			TimeZone.setDefault(currentDefault);
+		}
+	}
+
+	@Test
+	public void canCreateDateWithASecond() {
 		assertThat(JAN(1, 2014).at(9, 15, 30), sameInstant(2014, Months.JAN, 1, 9, 15, 30, 0));
+	}
+
+	@Test
+	public void canCreateDateWithASecondAndZone() {
+		TimeZone currentDefault = TimeZone.getDefault();
+		TimeZone.setDefault(GREENWICH_MEAN_TIME);
+		try {
+			assertThat(JAN(1, 2014).at(9, 15, 30, BRITISH_SUMMER_TIME), sameInstant(2014, Months.JAN, 1, 8, 15, 30, 0));
+		} finally {
+			TimeZone.setDefault(currentDefault);
+		}
 	}
 
 	@Test
 	public void canCreateDateWithAMillisecond() {
 		assertThat(JAN(1, 2014).at(9, 15, 30, 500), sameInstant(2014, Months.JAN, 1, 9, 15, 30, 500));
+	}
+
+	@Test
+	public void canCreateDateWithAMillisecondAndZone() {
+		TimeZone currentDefault = TimeZone.getDefault();
+		TimeZone.setDefault(GREENWICH_MEAN_TIME);
+		try {
+			assertThat(JAN(1, 2014).at(9, 15, 30, 500, BRITISH_SUMMER_TIME), sameInstant(2014, Months.JAN, 1, 8, 15, 30, 500));
+		} finally {
+			TimeZone.setDefault(currentDefault);
+		}
 	}
 
 	@Test
@@ -34,7 +90,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInJanuary() {
-		JAN(32, 2014);
+		JAN(32, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -44,7 +100,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnDateInFebruary() {
-		FEB(29, 2014);
+		FEB(29, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -54,7 +110,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInMarch() {
-		MAR(32, 2014);
+		MAR(32, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -64,7 +120,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInApril() {
-		APR(31, 2014);
+		APR(31, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -74,7 +130,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInMay() {
-		MAY(32, 2014);
+		MAY(32, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -84,7 +140,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInJune() {
-		JUN(31, 2014);
+		JUN(31, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -94,7 +150,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInJuly() {
-		JUL(32, 2014);
+		JUL(32, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -104,7 +160,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInAugust() {
-		AUG(32, 2014);
+		AUG(32, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -114,7 +170,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInSeptember() {
-		SEP(31, 2014);
+		SEP(31, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -124,7 +180,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInOctober() {
-		OCT(32, 2014);
+		OCT(32, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -134,7 +190,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInNovember() {
-		NOV(31, 2014);
+		NOV(31, 2014).at(9, 30, 15);
 	}
 
 	@Test
@@ -144,7 +200,7 @@ public class FluentDateTimeTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void canErrorOnBadDateInDecember() {
-		DEC(32, 2014);
+		DEC(32, 2014).at(9, 30, 15);
 	}
 
 	@Test(expected = IllegalArgumentException.class)

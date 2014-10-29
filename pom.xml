@@ -5,7 +5,7 @@
 	<artifactId>fluent-date</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 
-	<name>eXparity Fluent Date Builder</name>
+	<name>Fluent Date Builder</name>
 	<url>https://github.com/eXparity/fluent-date</url>
 	<description>Simple Date library for Java</description>
 
@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>org.exparity</groupId>
 			<artifactId>hamcrest-date</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
