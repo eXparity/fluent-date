@@ -7,7 +7,7 @@
 
 	<name>Fluent Date Builder</name>
 	<url>https://github.com/eXparity/fluent-date</url>
-	<description>Simple Date library for Java</description>
+	<description>A Java library for creating Java Date instances with a fluent readable syntax</description>
 
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
