@@ -5,5 +5,7 @@
 *.war
 *.ear
 /.settings
+.project
+.classpath
 /target
 /test-output/
