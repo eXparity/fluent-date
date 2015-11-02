@@ -7,7 +7,7 @@ Licensed under [BSD License][].
 
 What is Fluent Date?
 -----------------
-Fluent Date is an library which supports creation of java Date instances using a simple human readable format e.g. FluentDate.JAN(8,2014) with return a java Date for 8th January 2014
+Fluent Date is an library which supports creation of java Date, LocalDate, LocalDateTime, and ZonedDateTime instances using a simple human readable format e.g. FluentDate.JAN(8,2014) would return a java Date for 8th January 2014
 
 Downloads
 ---------
@@ -18,12 +18,16 @@ A maven project
     <dependency>
         <groupId>org.exparity</groupId>
         <artifactId>fluent-date</artifactId>
-        <version>1.0.0</version>
+        <version>2.0.0</version>
     </dependency>
 
-A project which uses ivy for dependency management
+Versions 2.x.x onwards require Java 8. If you are using an earlier version of Java 8 then include version
 
-    <dependency org="org.exparity" name="fluent-date" rev="1.0.0"/>
+    <dependency>
+        <groupId>org.exparity</groupId>
+        <artifactId>fluent-date</artifactId>
+        <version>1.0.1</version>
+    </dependency>
             
 Binaries
 --------
@@ -32,7 +36,7 @@ Fluent Date has a single binary, fluent-date.jar, which contains all the fluent 
 Usage
 -------------
 
-The fluent builders are exposed as static methods on the FluentDate and FluentDateTime classes. For Example
+The fluent builders are exposed as static methods on the FluentDate, FluentDateTime, FluentLocalDate, and FluentLocalDateTime classes. For Example
 
 	Date releaseDate = FluentDate.JAN(8,2014);
 	Date releaseDateAndTime = FluentDateTime.JAN(8,2014).at(12,0,0);
@@ -40,7 +44,13 @@ The fluent builders are exposed as static methods on the FluentDate and FluentDa
 or after static importing
 
 	Date releaseDate = JAN(8,2014);
-	Date releaseDateAndTime = JAN(8,2014).at(12,0,0);
+	Date releaseDateAndTime = JAN(8,2014).at(12,0,1);
+
+The equivalent builders for LocalDate, LocalDateTime, and ZonedDateTime are as follows:
+
+	LocalDate releaseDate = FluentLocalDate.JAN(8,2014);
+	LocalDateTime releaseDateAndTime = FluentLocalDateTime.JAN(8,2014).at(12,0,1);
+	ZonedDateTime releaseDateAndTime = FluentLocalDateTime.JAN(8,2014).at(12,0,1,ZoneId.of("UTC"));	
 
 The Javadocs include examples on all methods so you can look there for examples for specific methods
 
@@ -55,6 +65,9 @@ The source includes a pom.xml for building with Maven
 
 Release Notes
 -------------
+Changes 1.0.1 -> 2.0.0
+  * Add support for Java 8 Temporal types.
+  
 Changes 1.0.0 -> 1.0.1
   * Add support for supplying a TimeZone to FluentDateTime.
   * Remove incorrect copyright notices
